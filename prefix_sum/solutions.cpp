@@ -63,6 +63,59 @@ public:
         return run;
     }
 
+    int subarraySum(vector<int>& nums) {
+        int total = 0;
+        int n = nums.size();
+
+        for(int i = 0; i < n; i++){
+            for(int start = max(0, i - nums[i]); start <= i; start++){
+                total+= nums[start];
+            }
+        }
+
+        return total;
+    }
+
+    int garbageCollection(vector<string>& garbage, vector<int>& travel) {
+        int mtruck = 0, ptruck = 0, gtruck = 0, time = 0;
+
+        int n = garbage.size();
+        char g;
+        for(int i = 0; i < n; i++){
+            while(garbage[i].length() > 0){
+                g = garbage[i].at(0);
+                time+= 1;
+                if(g == 'G'){
+                    time+= gtruck;
+                    gtruck = 0;
+                }
+                else if(g == 'P'){
+                    time+= ptruck;
+                    ptruck = 0;
+                }
+                else{
+                    time+= mtruck;
+                    mtruck = 0;
+                }
+                if(garbage[i].length() == 1){
+                    break;
+                }
+                else{
+                    garbage[i] = garbage[i].substr(1, garbage[i].length() - 1);
+                }  
+            }
+            if(i < n-1){
+                mtruck+= travel[i];
+                ptruck+= travel[i];
+                gtruck+= travel[i];
+            }
+        }
+
+        return time;
+    }
+
+    
+
 };
 
 
