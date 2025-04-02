@@ -1,25 +1,14 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
 #define int long long
 
 class Node{
-	public:
+public:
 	int data;
 	Node* next;
-
-	public:
-	Node(int data1, Node* next1){
-		data = data1;
-		next = next1;
-	}
-
-	Node(int data1){
-		data = data1;
-		next = nullptr;
-	}
-};
-
+	Node* prev;
+}
 
 signed main(){
     ios::sync_with_stdio(false);
@@ -29,7 +18,5 @@ signed main(){
     freopen("output.txt", "w", stdout);
     #endif
 
-    Node* y = new Node(2);
-    cout << y -> data;
-    
+
 }

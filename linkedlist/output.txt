@@ -1,1 +1,6 @@
-2
+Linked List: 2 5 6 3 5 7 5 
+After deleting head: 5 6 3 5 7 5 
+After deleting tail: 5 6 3 5 7 
+After deleting 3rd node: 5 6 3 7 
+Index of Node with value 3: 2
+After inserting 9 at 0th: 9 5 6 3 7 
